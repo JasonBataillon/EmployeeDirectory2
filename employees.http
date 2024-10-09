@@ -5,7 +5,7 @@
 GET {{host}}
 
 ### Get all employees
-GET {{host}}/w
+GET {{host}}/employees
 
 ### Get specific employee
 GET {{host}}/employees/2
