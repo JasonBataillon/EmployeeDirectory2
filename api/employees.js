@@ -22,3 +22,18 @@ router.get('/:id', (req, res) => {
     res.status(404).send(`There is no employee with id ${id}.`);
   }
 });
+
+router.post('/', (req, res) => {
+  const employee = req.body;
+  if (employee) {
+    const employeeExistsAlready = employees.find((e) => e.id === employee.id);
+    if (!employeeExistsAlready) {
+      employees.push(employee);
+      res.status(201).json(employees);
+    } else {
+      res.status(400).send('This player already exists.');
+    }
+  } else {
+    res.status(400).send(`This shit ain't workin': ${employee}`);
+  }
+});
